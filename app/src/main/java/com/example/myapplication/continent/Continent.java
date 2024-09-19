@@ -1,3 +1,5 @@
+package com.example.myapplication.continent;
+
 public class Continent {
     public String nameContinent;
     public String imgContinent;

@@ -1,8 +1,11 @@
+package com.example.myapplication;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.continent.ContinentFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,10 +13,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ContinentFragment continentFragment = new ContinentFragment();
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainer, continentFragment)
+                .replace(R.id.fragmentContainer, new ContinentFragment())
                 .commit();
     }
 }

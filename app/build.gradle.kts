@@ -1,13 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
 }
-
 android {
-    namespace = "com.example.myapplication"
+    namespace = "com.example.Hw_4"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
+        applicationId = "com.example.Hw_4"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -46,4 +45,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    //Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation("androidx.fragment:fragment:1.8.3")
+
 }

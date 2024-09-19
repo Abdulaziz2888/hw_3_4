@@ -1,21 +1,22 @@
+package com.example.myapplication.country;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.databinding.ItemCountryBinding;
 
 import java.util.ArrayList;
 
 public class CountryAdapter extends RecyclerView.Adapter<CountryViewHolder> {
-    public ArrayList<Country> countryList;
+    private ArrayList<CountryModel> countryList;
 
-    public CountryAdapter(ArrayList<Country> countryList) {
+    public CountryAdapter(ArrayList<CountryModel> countryList) {
         this.countryList = countryList;
     }
-
-
 
     @NonNull
     @Override
@@ -28,6 +29,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryViewHolder> {
         holder.onBind(countryList.get(position));
     }
 
+
     @Override
     public int getItemCount() {
         return countryList.size();
@@ -35,14 +37,18 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryViewHolder> {
 }
 
 class CountryViewHolder extends RecyclerView.ViewHolder {
-    public ItemCountryBinding binding;
+    private ItemCountryBinding binding;
 
     public CountryViewHolder(@NonNull ItemCountryBinding binding) {
         super(binding.getRoot());
         this.binding = binding;
+
     }
 
-    public void onBind(Country country) {
-        binding.tvCountry.setText(country.getTvCountry());
+
+    public void onBind(CountryModel country) {
+        binding.tvCountry.setText(country.getName());
+        binding.tvCapital.setText(country.getCapital());
+        Glide.with(binding.imgFlag).load(country.getFlag()).into(binding.imgFlag);
     }
 }
